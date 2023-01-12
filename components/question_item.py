@@ -2,11 +2,14 @@ import streamlit as st
 import pandas as pd
 
 from constants.index import list_questions
+from components import tab_sections
 
 def question_one(df):
    st.subheader(list_questions[0])
    st.write("The bar chart below shows the number of houses for rent in each district of Ho Chi Minh City.")
    st.bar_chart(df['district'].value_counts())
+   st.markdown('---')
+   tab_sections.make_tab_sections()
    
 def question_two():
    st.subheader(list_questions[1])

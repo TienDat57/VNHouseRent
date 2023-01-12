@@ -1,14 +1,14 @@
 import streamlit as st
 
 def make_tab_sections():
-   st.subheader('Tabs')
-   tab1, tab2 = st.tabs(["TAB 1", "TAB 2"])
+   st.title('Conclusions')
+   insight, provide = st.tabs(["Insight", "Provide"])
 
-   with tab1:
+   with insight:
       st.write('WOW!')
       st.image("https://i.gifer.com/DJR3.gif", width=400)
 
-   with tab2:
+   with provide:
       st.write('Do you like ice cream? 🍨')
       agree = st.checkbox('Yes! I love it')
       disagree = st.checkbox("Nah! 😅")
