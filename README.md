@@ -20,3 +20,22 @@
 * **Dataset:** We collect data from [Kaggle](https://www.kaggle.com/datasets/vanviethieuanh/vietnam-house-rent-dataset?select=hcm.csv)
 * **Tools:** Streamlit and library nessesary for our project (Pandas, Numpy, Matplotlib, Seaborn, Sklearn, ...).
 * **Team management:** We will use [Trello](https://trello.com/b/7TX7mOtb/programming-for-data-science) to manage our project.
+---
+## 4. Getting Started
+* **Clone the project**
+```
+git clone https://github.com/TienDat57/VNHouseRent.git
+```
+* **Install the dependencies**
+```
+pip install -r requirements.txt
+```
+* **Run the project**
+```
+streamlit run app.py
+```
+* **Open the project**
+```
+http://localhost:8501
+```
+---
