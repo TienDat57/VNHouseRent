@@ -104,11 +104,7 @@ num_cols_df
 rented_house_df.describe()
               ''')
       st.write('📜 The min, max and mean of each numerical column:')
-      st.write('''
-            - **id:** min: 0, max: 8876, mean: 4438.0
-            - **price**: min: 5.000000e+05, max: 1.500000e+08, mean: 3.453055e+06
-            - **acreage:** min: 5.000000, max: 1000.000000, mean: 26.355295
-            ''')
+      st.dataframe(rented_house_df.describe())
       st.markdown('---')
       st.markdown('📜 ** <font color="yellow">Comment</font> **', unsafe_allow_html=True)
       st.markdown('- **We can see that the min of price is 500000, the max of price is 150000000, the min of acreage is 5, the max of acreage is 1000.And the acreage of the rented houses can not equal 0. So we need to remove them.**')
@@ -139,7 +135,7 @@ cate_cols_df.loc['diff_vals'] = rented_house_df.apply(lambda x: x[~x.isnull()].u
 cate_cols_df
               ''')
       st.write('📜 The percentage of missing values:')
-      st.dataframe(cate_cols_df)
+      # st.dataframe(cate_cols_df)
       
    st.markdown(
     """
