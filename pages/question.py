@@ -37,23 +37,10 @@ def app():
    show_data(df_filter)
    st.markdown('---')
    
-   # if st.button('Intercorrelation Heatmap'):
-   #    st.header('Intercorrelation Matrix Heatmap')
-   #    df_filter.to_csv('data/output.csv',index=False)
-   #    df = pd.read_csv('data/output.csv')
-
-   #    corr = df.corr()
-   #    mask = np.zeros_like(corr)
-   #    mask[np.triu_indices_from(mask)] = True
-   #    with sns.axes_style("white"):
-   #       f, ax = plt.subplots(figsize=(7, 5))
-   #       ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
-   #    st.pyplot()
-   
    st.subheader("Choose question to have data insights")
    option = st.selectbox(
       'How would you like to be contacted? 💔',
-      ('Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5', 'Question 6', 'Question 7', 'Question 8')
+      ('Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5')
    )
    st.markdown('---')
    
@@ -66,12 +53,6 @@ def app():
    elif option == 'Question 4':
       question_item.question_four(df_house_rent, df_filter)
    elif option == 'Question 5':
-      question_item.question_five()
-   # elif option == 'Question 6':
-   #    question(6)
-   # elif option == 'Question 7':
-   #    question(7)
-   # elif option == 'Question 8':
-   #    question(8)
+      question_item.question_five(df_house_rent)
    st.markdown('---')
    

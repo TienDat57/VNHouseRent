@@ -24,6 +24,13 @@ def insight_question_2():
    st.markdown('>- The remaining months average between 70 and 110 rooms per month.')
    st.markdown('> => Thus, from the above data, we can tell landlords when the demand for rental housing increases so that there are prepared mechanisms to respond.')  
    
+def insight_question_5():
+   st.markdown('&#9889; <font color="yellow"><b>What are benefits of finding the answer? </b></font>', unsafe_allow_html=True)
+   st.markdown('>- Looking at the table above, we can see that there are places for rent of more than 100 square meters, but the price is under  2000000 VNĐ. This proves that this is a dormitory or an industrial park, so the rent is very low because it is calculated on a per capita basis.')
+   st.markdown('>- A special feature is that there are places up to 1000 square meters but only priced from 1200000 - 1600000. This proves that this is not an ordinary inn, but a long inn or an industrial park for rent.') 
+   st.markdown('>- Thus, looking at the table above, we can guess the type of hostel, apartment, rented room, or dormitory in the last 5 years.')
+    
+    
 def make_tab_sections(index):
    st.title(':blue[Conclusions]')
    insight, provide = st.tabs(["Insight", "Provide"])
@@ -35,6 +42,8 @@ def make_tab_sections(index):
          insight_question_2()
       elif index == 3:
          insight_question_4()
+      elif index == 4:
+         insight_question_5()
       if st.button('👍🏻'):
          st.success('Thank you for your feedback!')
       else:
