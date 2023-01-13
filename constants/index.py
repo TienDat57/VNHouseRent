@@ -1,6 +1,7 @@
 list_questions = [
-   'Thống kê số phòng trọ theo quận. Và xem thử các quận nào có tỷ lệ trọ nhiều, tại sao lại có điều này( trường học, khu công nghiệp) :sunglasses:',
-   'Thời gian đăng cho thuê phòng trọ chủ yếu vào các tháng nào? Vì sao lại như vậy (dựa vào tháng tựu trường, tháng hè, khu công nghiệp..) :sunglasses:',
-   'Giá tiền trọ theo năm. Tại sao mỗi năm lại có sự tăng giảm như vậy( visualize). :sunglasses:',
-   'Giá tiền trọ theo quận và thống kê số diện tích của các phòng trọ (đa số các phòng trọ chiếm diện tích bao nhiêu) và liên kết giữa số tiền và diện tích của mỗi quận (quận đó thuộc dạng đắc đỏ hay trung bình). Vì sao lại như vậy.',
+   'Why is the distribution between counties uneven? :sunglasses:',
+   'In which months is the primary time to post rooms for rent? Why is that? (Based on back-to-school month, summer month) :sunglasses:',
+   'The price of rented houses over the years. Why is there such an increase and decrease every year? :sunglasses:',
+   'The price of the accommodation by district and the statistics of the area of ​​the rooms (how much space most of the rooms occupy) and the link between the amount and the area of ​​each district (which is the most expensive or the average district). Why is that?',
+   ' Analyze the price and the corresponding area to conclude the type of room, apartment, rented room, or industrial park in the 5 last years'
 ]

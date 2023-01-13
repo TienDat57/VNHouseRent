@@ -60,7 +60,7 @@ def app():
    if option == 'Question 1':
       question_item.question_one(df_filter)
    elif option == 'Question 2':
-      question_item.question_two()
+      question_item.question_two(df_filter)
    elif option == 'Question 3':
       question_item.question_three()
    elif option == 'Question 4':
