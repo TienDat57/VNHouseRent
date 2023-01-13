@@ -93,8 +93,47 @@ def question_two(df):
    
    tab_sections.make_tab_sections(1)
    
-def question_three():
+def question_three(df):
    st.markdown(list_questions[2], unsafe_allow_html=True)
+   st.markdown('---')
+   st.markdown('### ✨ **1. Get data by year**')
+   df['published'] = pd.DatetimeIndex(df['published'])
+   df.set_index('id')
+   st.dataframe(df)
+   st.markdown('> 📙 Get mean price per year')
+   df_group_by_year = {}
+   df_group_by_year['published'] = df.groupby(df['published'].dt.year, axis=0)['price'].mean()
+   st.dataframe(df_group_by_year)
+   st.markdown('### 🎖 **2. Visualization by the price of each year.**')
+   fig, ax = plt.subplots(figsize=(10, 5))
+   ax.plot(df_group_by_year['published'].index , df_group_by_year['published'].values, label='All year')
+   ax.set_xlabel('Year')
+   ax.set_ylabel('Average rent')
+   ax.set_title('Price of accommodation by year')
+   ax.legend()
+   st.pyplot(fig)
+   st.subheader('#### Within 5 years from 2018-2022, the rental price is stable year by year, it does not go up or down, then the market is gradually stabilizing and has a specific price.')
+   st.markdown('---')
+   
+   st.markdown('##### &#9889; <font color="yellow"><b>What are benefits of finding the answer?</b></font>', unsafe_allow_html=True)
+   st.markdown('>   - Evaluate the price of accommodation every year.')
+   st.markdown('>   - We can know  the rental rates fluctuated in HCM City.')
+   st.markdown('>   - As we can see, during the years (2018 - 2020) of the covid epidemic, the price of accommodation has decreased significantly.')
+   st.markdown('---')
+   
+   st.markdown('### 🎖 3. Which month is the best time to rent ?')
+   st.markdown('> Group by data by month')
+   grouped = df.groupby(df['published'].dt.month)
+   st.dataframe(grouped['price'].describe())
+   st.markdown('---')
+   st.subheader("Draw boxplot to check which month has an addorable price")
+   fig, ax = plt.subplots()
+   grouped.boxplot(subplots=False, rot=45, fontsize=8, column='price', figsize=(15,10), ax=ax)
+   ax.set_title('Which has an addorable price')
+   ax.set_xlabel('month')
+   ax.set_ylabel('price')
+   st.pyplot(fig)
+   st.markdown('#### ✨**As we can see in the data, February, September and October are the best time to rent by the affordable price**')
 
 
 def question_four(df, df_filter):
