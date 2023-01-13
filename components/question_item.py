@@ -57,7 +57,7 @@ def question_one(df):
    
    tab_sections.make_tab_sections(0)
    
-def question_two():
+def question_two(df):
    st.markdown(list_questions[1], unsafe_allow_html=True)
    
    df['month'] = pd.DatetimeIndex(df['published']).month
@@ -115,7 +115,7 @@ def question_four(df, df_filter):
    df_filter = df_filter.sort_values(by='acreage', ascending=False)
    percent = df_filter['acreage'].value_counts(normalize=True) * 100
    percent = percent.sort_values(ascending=False)
-   top_10_percent = percent.head(10)
+   top_10_percent = percent.head(20)
    top_10_percent = pd.DataFrame({'acreage':top_10_percent.index, 'percent': top_10_percent.values}).sort_values(by='percent', ascending=False)
    st.markdown('<center>Percents of acreage</center>', unsafe_allow_html=True)
    st.bar_chart(top_10_percent, x='acreage', y='percent', width=0, height=0, use_container_width=True)
@@ -131,6 +131,7 @@ def question_four(df, df_filter):
    top_10_ward = df_ward.head(10)
    # visualize top 10 ward with barh chart
    fig, ax = plt.subplots()
+   fig.set_size_inches(10, 5)
    ax.barh(top_10_ward.index, top_10_ward['price'])
    ax.set_title('Top 10 streets with the cheapest price in the district you have chosen')
    ax.set_xlabel('Price')

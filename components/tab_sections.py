@@ -11,10 +11,6 @@ def insight_question_4():
    st.markdown('&#9889; <font color="yellow"><b>What are benefits of finding the answer? </b></font>', unsafe_allow_html=True)
    st.markdown('>- Help users fulfill their desire to find the cheapest accommodation in the desired area.')
    st.markdown('>- Help users find the most suitable accommodation for their needs.')
-   if st.button('👍🏻'):
-      st.success('Thank you for your feedback!')
-   else:
-      st.write(' ')
 
 def provide_question_1():
    st.markdown('&#9889; <font color="yellow"><b>Does it need to have preprocessing step, and if yes, how does your group preprocess? </b></font>', unsafe_allow_html=True)
@@ -37,6 +33,8 @@ def make_tab_sections(index):
          insight_question_1()
       elif index == 1:
          insight_question_2()
+      elif index == 3:
+         insight_question_4()
       if st.button('👍🏻'):
          st.success('Thank you for your feedback!')
       else:
