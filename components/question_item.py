@@ -144,5 +144,39 @@ def question_four(df, df_filter):
    tab_sections.make_tab_sections(3)
 
 
-def question_five():
+def question_five(df_house_rent):
    st.markdown(list_questions[4], unsafe_allow_html=True)
+   st.markdown('---')
+   
+   st.subheader('**📌Get the last 5 years and group by acreage and get the lowest price for each year**')
+   
+   df_house_rent['year'] = pd.DatetimeIndex(df_house_rent['published']).year
+   df_house_rent['year'] = df_house_rent[df_house_rent['year'] > 2017]['year'].astype(int)
+
+   # group by acreage and get the lowest price for each year > 2017
+   grouped = df_house_rent.groupby(['acreage', 'year'])
+   df2 = grouped['price'].min().reset_index()
+   st.dataframe(df2)
+   
+   st.markdown('### ✨ **Create a new dataframe and calculate mean price per squared meter**')
+   df_acreage = pd.DataFrame(grouped['price'].min())
+   df_acreage = df_acreage.unstack(level=1)
+   df_acreage = df_acreage.sort_index(ascending=True)
+   df_acreage['min_price'] = df_acreage.min(axis=1)
+   df_acreage = df_acreage.sort_values(by='acreage', ascending=True)
+   df_acreage.head(30)
+
+   # Name the columns
+   df_acreage.columns = ['2018', '2019', '2020','2021','2022', 'min_price']
+
+   # mean of min price per acreage
+   st.markdown('Mean of min price per acreage')
+   df_acreage['mean_per_acreage'] = round(df_acreage['min_price'] / df_acreage.index, 0)
+   st.dataframe(df_acreage.tail(30))
+   
+   st.markdown('### ✨ **Outlier**')
+   outlier = df_acreage[df_acreage['mean_per_acreage'] < 10000]
+   st.dataframe(outlier)
+   
+   st.markdown('---')
+   tab_sections.make_tab_sections(4)
