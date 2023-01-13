@@ -11,8 +11,8 @@ df_house_rent = pd.read_csv('./data/HCMHouseRentPreprocessing.csv')
 def selected_feture():
    selected_year = st.selectbox('Year', list(reversed(range(2015, 2022))))
    selected_district = st.multiselect('District', df_house_rent['district'].unique(), df_house_rent['district'].unique())
-   selected_acreage = st.slider('Acreage', min_value=0, max_value=50, value=(0, 50))
-   selected_price = st.slider('Price', min_value=0, max_value=100000, value=(0, 100000), step=1000)
+   selected_acreage = st.slider('Acreage', min_value=0, max_value=50, value=(0, 1000), step=20)
+   selected_price = st.slider('Price', min_value=0, max_value=100000, value=(0, 150000), step=1000)
    return selected_year, selected_district, selected_acreage, selected_price
 
 def filter_data(df, selected_year, selected_district, selected_acreage, selected_price):
